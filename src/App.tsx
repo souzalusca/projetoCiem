@@ -66,7 +66,7 @@ function App() {
       >
         <div className="container px-4 md:px-24 flex justify-between items-center">
           <h2 className="text-[1.2rem] md:text-[1.5rem] font-bold">
-            Colégio CIEM
+            Colégio CIEM Teste Version 01
           </h2>
           <nav className="flex flex-wrap gap-4 md:gap-6 text-sm md:text-base">
             <a href="#menu" className="hover:font-bold">
