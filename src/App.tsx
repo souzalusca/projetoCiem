@@ -12,9 +12,9 @@ type SectionProps = {
 
 const Section: React.FC<SectionProps> = ({ image, title, text, reverse }) => (
   <motion.section
-    className={`flex bg-amber-50 flex-col pl-16 md:flex-row ${
-      reverse ? "md:flex-row-reverse md:pr-16" : ""
-    } items-center p-8 gap-6`}
+    className={`flex bg-amber-50 flex-col px-4 md:px-16 md:flex-row ${
+      reverse ? "md:flex-row-reverse" : ""
+    } items-center py-8 gap-6`}
     initial={{ x: reverse ? 800 : -200, opacity: 0 }}
     whileInView={{ x: 0, opacity: 1 }}
     transition={{ duration: 0.5 }}
@@ -58,55 +58,58 @@ function App() {
     <div className="font-sans">
       {/* Header */}
       <header
-        className={`fixed top-0 z-50 w-full p-8 transition-all duration-300 ${
+        className={`fixed top-0 z-50 w-full p-4 md:p-8 transition-all duration-300 ${
           scrolled
             ? "bg-white text-blue-900 shadow-md"
             : "bg-blue-950 text-white"
         }`}
       >
-        <div className="container mx-[6rem] flex justify-between items-center">
-          {/* Lado esquerdo: logo ou nome */}
-          <h2 className="text-[1.5rem] font-bold ">Colégio CIEM</h2>
-
-          {/* Lado direito: menu */}
-          <nav className="flex gap-6 hover:underline-none  justify-end text-[1rem] ">
+        <div className="container px-4 md:px-24 flex justify-between items-center">
+          <h2 className="text-[1.2rem] md:text-[1.5rem] font-bold">
+            Colégio CIEM
+          </h2>
+          <nav className="flex flex-wrap gap-4 md:gap-6 text-sm md:text-base">
             <a href="#menu" className="hover:font-bold">
               Menu
             </a>
-            <a href="#contato" className=" hover:font-bold">
+            <a href="#contato" className="hover:font-bold">
               Contato
             </a>
-            <a href="#login" className=" hover:font-bold">
+            <a href="#login" className="hover:font-bold">
               Login
             </a>
-            <a href="#inscricao" className=" hover:font-bold">
+            <a href="#inscricao" className="hover:font-bold">
               Inscreva-se
             </a>
           </nav>
         </div>
       </header>
+
       {/* Bloco principal com imagem */}
       <main className="relative p-0 w-full bg-gray-100 flex justify-center">
-        <img
-          src="https://wordpress-cms-gc-prod-assets.quero.space/uploads/2018/10/licenciatura-plena.jpg"
-          alt="Imagem principal"
-          className="w-full h-[900px] object-cover"
-        />
+        <div className="w-full ">
+          <img
+            src="https://wordpress-cms-gc-prod-assets.quero.space/uploads/2018/10/licenciatura-plena.jpg"
+            alt="Imagem principal"
+            className="w-full h-[400px] md:h-[600px] lg:h-[900px] object-cover"
+          />
+        </div>
+
         {/* Overlay de gradiente */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-gray-600/20"></div>
 
-        <div className="absolute top-[70%] left-[20%] transform -translate-x-1/2 -translate-y-1/2 text-white max-w-[600px] px-4">
-          <h1 className="text-4xl font-bold mb-4">
+        <div className="absolute top-[50%]  md:top-[70%] left-[30%] w-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white max-w-[90%] md:max-w-[600px] px-4 text-center md:text-left">
+          <h1 className="md:text-4xl text-2xl  font-bold mb-4">
             Seja bem-vindo ao Colégio CIEM
           </h1>
-          <p className="text-lg mb-6">
+          <p className="md:text-lg text-sm mb-6">
             O Colégio CIEM oferece uma experiência educacional inovadora e
             personalizada para alunos de todas as idades.
           </p>
-          <button className="mt-15 bg-yellow-500 text-blue-900 font-bold py-2 px-4 rounded">
+          <button className="mt-15 bg-yellow-500 text-blue-900 font-bold md:py-2 md:px-4 rounded">
             <a
               href="#inscricao"
-              className="font-bold py-2 px-4 rounded  inline-block"
+              className="font-bold py-2 px-2 rounded text-[0.8rem] md:text-[1rem] inline-block"
             >
               QUERO CONHECER MAIS!
             </a>
@@ -195,7 +198,7 @@ function App() {
       </motion.div>
 
       {/* Footer */}
-      <motion.footer className="bg-white absolute w-full justify-between flex text-blue-900 p-6 text-center">
+      <motion.footer className="bg-white w-full flex flex-col md:flex-row justify-between p-6 text-center text-blue-900">
         <div>© 2025 Colégio Exemplo. Todos os direitos reservados.</div>
         <div>
           Desenvolvido por <strong>EMLU COMPANY.</strong>
